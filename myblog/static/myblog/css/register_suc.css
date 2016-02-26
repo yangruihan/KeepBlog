@@ -1,0 +1,42 @@
+.bg_box {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-top: 1em;
+    padding-bottom: 6em;
+    background-color: rgb(118, 167, 207);
+     box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
+}
+
+.suc_hint {
+    margin:0 auto;
+    width: 350px;
+}
+
+.suc_hint h1 {
+	width: 100%;
+	color: #fff;
+	text-align: center;
+}
+
+.suc_hint h2 {
+	width: 100%;
+	color: #fff;
+	text-align: center;
+}
+
+.jump_groups {
+	margin-top:10px;
+	text-align:center;
+}
+
+.suc_hint ul {
+	list-style: none;
+	overflow:hidden;
+	padding:4px 0;
+	margin:0;
+}
+
+.suc_hint li {
+    text-align: center;
+    padding:0;
+}

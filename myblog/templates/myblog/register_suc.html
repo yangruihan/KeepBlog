@@ -6,11 +6,23 @@
 {% endblock %}
 
 {% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'myblog/css/register_suc.css' %}">
 {% endblock %}
 
 {% block scripts %}
 {% endblock %}
 
 {% block content %}
-注册成功！
+<div class="bg_box">
+	<div class="suc_hint">
+		<h1>注册成功</h1><br>
+		<h2>欢迎您，{{ logged_in_user.username }}</h2>
+		<div class="jump_groups">
+			<ul>
+				<li><a href="#">进入个人主页</a></li>
+				<li><a href="{% url 'myblog:index' %}">返回首页</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
 {% endblock %}

@@ -6,11 +6,22 @@
 {% endblock %}
 
 {% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'myblog/css/register_fail.css' %}">
 {% endblock %}
 
 {% block scripts %}
 {% endblock %}
 
 {% block content %}
-注册失败！
+<div class="bg_box">
+	<div class="suc_hint">
+		<h1>注册失败</h1>
+		<div class="jump_groups">
+			<ul>
+				<li><a href="{% url 'myblog:register' %}">重新注册</a></li>
+				<li><a href="{% url 'myblog:index' %}">返回首页</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
 {% endblock %}

@@ -11,12 +11,6 @@ def index(request):
 def register(request):
     return render(request, 'myblog/register.html')
 
-def register_suc(request):
-    return render(request, 'myblog/register_suc.html')
-
-def register_fail(request):
-    return render(request, 'myblog/register_fail.html')
-
 def do_register(request):
     try:
         username = request.POST['username']
@@ -24,11 +18,8 @@ def do_register(request):
         email = request.POST['email']
         user = User(username=username, password=password, email=email, create_date=timezone.now())
         user.save()
+        request.session['logged_in_user'] = user
+        return render(request, 'myblog/register_suc.html')
     except KeyError as e:
-        # return render(request, 'myblog/register.html', {
-        #         'error_message': u"你必须将信息填写完整",
-        #     })
         print(e)
-        return HttpResponseRedirect(reverse('myblog:register_fail'))
-    else:
-        return HttpResponseRedirect(reverse('myblog:register_suc'))
+        return render(request, 'myblog/register_fail.html')
