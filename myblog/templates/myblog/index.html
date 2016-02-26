@@ -6,11 +6,27 @@ Yrh's Blog
 {% endblock %}
 
 {% block styles %}
-<link rel="stylesheet" type="text/css" href="{% static 'myblog/index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'myblog/css/index.css' %}">
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'myblog/js/index.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 <header>
-    
+    <div class="header_left logo">
+        <div class="blog_name" >Yrh's Blog</div>
+    </div>
+    <div class="header_right login_wrap">
+        <ul>
+            <li class="login">
+                <a href="#">登录</a>
+            </li>
+            <li class="register">
+                <a href="#">注册</a>
+            </li>
+        </ul>
+    </div>
 </header>
 {% endblock %}
