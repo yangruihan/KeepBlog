@@ -3,11 +3,33 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'myblog/css/base.css' %}">
     {% block styles %}{% endblock %}
-    <script type="text/javascript" src="{% static 'myblog/js/jquery/jquery-1.12.1.min.js' %}"></script>
-    {% block scripts %}{% endblock %}
+    
 </head>
 <body>
+    <header>
+        <div class="header_left logo">
+            <div class="blog_name" >Yrh's Blog</div>
+        </div>
+        <div class="header_right login_wrap">
+            <ul>
+                <li class="login">
+                    <a href="#">登录</a>
+                </li>
+                <li class="register">
+                    <a href="{% url 'myblog:register' %}">注册</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
     {% block content %}{% endblock %}
 </body>
+
+<script type="text/javascript" src="{% static 'myblog/js/jquery/jquery-1.12.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'myblog/js/base.js' %}"></script>
+{% block scripts %}{% endblock %}
+
 </html>

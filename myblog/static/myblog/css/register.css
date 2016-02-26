@@ -1,0 +1,61 @@
+.bg_box {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-top: 1em;
+    padding-bottom: 6em;
+    background-color: rgb(118, 167, 207);
+     box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
+}
+
+.register_box {
+    margin:0 auto;
+    width: 350px;
+}
+
+.register_box td {
+    color: #fff;
+    font-size: 17px;
+}
+
+table {
+    width: 100%;
+    line-height: 2.5;
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+}
+
+input {
+    width: 90%;
+}
+
+.submit_btn {
+    margin-top: 1.5em;
+    display: block;
+    width: 200px;
+    height: 55px; 
+    line-height: 52px; 
+    text-align: center; 
+    font-family: arial,verdana,sans-serif, '新宋体'; 
+    font-weight: bold; 
+    font-size: 18px; 
+    background: #428bca;
+    color: #fff; 
+    text-decoration: none; 
+    border: 3px solid #357ebd; 
+    cursor: pointer
+}
+
+.submit_btn:hover {
+    background: #1165ae;
+}
+
+.submit_btn:active {
+    background: #0d79d5;
+}
+
+span {
+    color: #f00;
+}
