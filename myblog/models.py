@@ -21,13 +21,13 @@ class UserInfo(models.Model):
         ('F', '女'),
     )
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='userinfo',)
     nickname = models.CharField(max_length=50) # 昵称
-    realname = models.CharField(max_length=50) # 实名
+    realname = models.CharField(max_length=50, default="") # 实名
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default='M')  # 性别
     birthday = models.DateField() #生日
-    area = models.CharField(max_length=100) # 地区
-    description = models.TextField() # 简述
+    area = models.CharField(max_length=100, default="") # 地区
+    description = models.TextField(default="") # 简述
     
     def __str__(self):
         return self.nickname

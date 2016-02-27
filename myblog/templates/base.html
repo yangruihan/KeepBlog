@@ -11,16 +11,20 @@
 <body>
     <header>
         <div class="header_left logo">
+        	{% if request.session.logged_in_user.userinfo %}
+        	<div class="blog_name" >{{ request.session.logged_in_user.userinfo.nickname }}</div>
+        	{% else %}
             <div class="blog_name" >Keep Blog</div>
+            {% endif %}
         </div>
         <div class="header_right login_wrap">
         	{% if request.session.logged_in_user %}
         	<ul>
 	        	<li>
-	            	<a href="#">欢迎您，{{ request.session.logged_in_user.username }}</a>
+	            	<a href="{% url 'myblog:jump_personal_page' %}">欢迎您，{{ request.session.logged_in_user.username }}</a>
 	            </li>
 	            <li class="personal_homepage">
-	                <a href="#">个人主页</a>
+	                <a href="{% url 'myblog:jump_personal_page' %}">个人主页</a>
 	            </li>
 	            <li class="logout">
 	                <a href="{% url 'myblog:do_logout' %}">注销</a>

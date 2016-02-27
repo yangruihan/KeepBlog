@@ -1,7 +1,14 @@
-body {
-    font-size: 100%;
+html, body {
+	height:100%
+	font-size: 100%;
     background: #d9d9d9;
     line-height: 1.5;
+    font-family: arial,verdana,sans-serif, '新宋体'; 
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{
+	margin: 0;
+	padding: 0;
+	vertical-align:baseline;
 }
 
 body > header {

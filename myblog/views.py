@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 
 from .models import User
+from myblog.models import UserInfo
 
 
 def index(request):
@@ -90,3 +91,44 @@ def username_check(request):
             return HttpResponse("用户名已存在，请重新输入")
     except User.DoesNotExist:
         return HttpResponse("")
+    
+def improve_userinfo(request):
+    """
+    完善个人信息页面
+    """
+    return render(request, 'myblog/improve_userinfo.html')
+    
+def jump_personal_page(request):
+    """
+    判断用户是否填写个人信息，如果填写则跳转到个人主页，如果未填写，则提示用户填写
+    """
+    try:
+        user = request.session['logged_in_user']
+        if (hasattr(user, "userinfo")):
+            return HttpResponse("即将跳转到个人主页")
+        else:
+            return HttpResponseRedirect(reverse('myblog:improve_userinfo'))
+    except KeyError as e:
+        print(e)
+        return HttpResponse("个人主页功能出现异常")
+        
+def do_create_userinfo(request):
+    """
+    创建用户个人信息
+    """
+    try:
+        user = request.session['logged_in_user']
+        nickname = request.POST['nickname']
+        realname = request.POST['realname']
+        gender = request.POST['gender']
+        birthday = request.POST['birthday']
+        city = request.POST['s_city']
+        province = request.POST['s_province']
+        area = province + '_' + city
+        description = request.POST['description']
+        userinfo = UserInfo(user=user, nickname=nickname, realname=realname, gender=gender, birthday=birthday, area=area, description=description)
+        userinfo.save()
+        return HttpResponse("创建个人信息成功")
+    except KeyError as e:
+        print(e)
+        return HttpResponse("创建个人信息失败")

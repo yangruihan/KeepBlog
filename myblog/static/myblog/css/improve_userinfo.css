@@ -28,9 +28,13 @@ h1 {
     text-align: center;
 }
 
+.gender {
+	width: 20%;
+}
+
 input {
     width: 90%;
-    background-color: #fff;
+    font-family: arial,verdana,sans-serif, '新宋体'; 
 }
 
 .submit_btn {
@@ -60,4 +64,9 @@ input {
 
 span {
     color: #f00;
+}
+
+tr select {
+	width: 90%;
+	font-family: arial,verdana,sans-serif, '新宋体';
 }
