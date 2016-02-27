@@ -128,4 +128,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+SESSION_SAVE_EVERY_REQUEST = True

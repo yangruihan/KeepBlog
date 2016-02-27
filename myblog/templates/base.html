@@ -14,19 +14,19 @@
             <div class="blog_name" >Yrh's Blog</div>
         </div>
         <div class="header_right login_wrap">
-        	{% if logged_in_user %}
+        	{% if request.session.logged_in_user %}
         	<ul>
 	        	<li>
-	            	<span>欢迎您，{{ logged_in_user.username}}</span>
+	            	<span>欢迎您，{{ request.session.logged_in_user.username }}</span>
 	            </li>
 	            <li class="logout">
-	                <a href="#">注销</a>
+	                <a href="{% url 'myblog:do_logout' %}">注销</a>
 	            </li>
             </ul>
         	{% else %}
         	<ul>
 	            <li class="login">
-	                <a href="#">登录</a>
+	                <a href="{% url 'myblog:login' %}">登录</a>
 	            </li>
 	            <li class="register">
 	                <a href="{% url 'myblog:register' %}">注册</a>
