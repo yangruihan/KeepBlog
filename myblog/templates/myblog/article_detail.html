@@ -14,28 +14,30 @@
 {% endblock %}
 
 {% block content %}
-<article id="{{ article.id }}" class="article article-type-post show" itemprop="blogPost" itemscope="">
-	<div class="article-inner">
-		<header class="article-header">
-			<h1 class="article-title" itemprop="name">{{ article.title }}</h1>
-		</header>
-		<div class="article-info article-info-post">
-			<div class="article-tag tagcloud">
-				<ul class="article-tag-list">
-					<li class="article-tag-list-item">
-						<a href="#">标签：</a>
-					</li>
-					{% for tag in article.tag.all %}
-					<li class="article-tag-list-item">
-						<a href="#">{{ tag.tag_name }}</a>
-					</li>
-					{% endfor %}
-				</ul>
+<dir class="container" id="container">
+	<article id="{{ article.id }}" class="article article-type-post show" itemprop="blogPost" itemscope="">
+		<div class="article-inner">
+			<header class="article-header">
+				<h1 class="article-title" itemprop="name">{{ article.title }}</h1>
+			</header>
+			<div class="article-info article-info-post">
+				<div class="article-tag tagcloud">
+					<ul class="article-tag-list">
+						<li class="article-tag-list-item">
+							<a href="#">标签：</a>
+						</li>
+						{% for tag in article.tag.all %}
+						<li class="article-tag-list-item">
+							<a href="#">{{ tag.tag_name }}</a>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="article-entry">
+			{{ article.content|custom_markdown }}
 			</div>
 		</div>
-		<div class="article-entry">
-		<p>{{ article.content|custom_markdown }}</p>
-		</div>
-	</div>
-</article>
+	</article>
+</dir>
 {% endblock %}

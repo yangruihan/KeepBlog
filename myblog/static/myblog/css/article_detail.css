@@ -1,14 +1,19 @@
 .article {
-    margin: 30px auto;
-    position: relative;
+	margin: 3em 0;
+    width: 73%;
+    float: left;
+   /* margin: 30px auto;*/
+    /*position: relative;*/
     border: 1px solid #ddd;
     background: #fff;
     max-width: 1200px;
     visibility: hidden;
     -webkit-transition: all 0.2s ease-in;
+    padding-bottom: 5em;
 }
 
 .article.show {
+	box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
     visibility: visible;
     -webkit-animation: cd-bounce-1 0.6s;
     -moz-animation: cd-bounce-1 0.6s;
@@ -90,5 +95,27 @@ ul {
     line-height: 1.8em;
     padding-right: 30px;
     padding-left: 30px;
-    margin: 2em 0 0 0;
+    margin: 3em 0 0 0;
+    padding-bottom: 3em;
+}
+
+#container {
+  width: 95%;
+  margin: 0 auto 1.5em;
+  overflow: hidden;
+}
+@media only screen and (min-width: 768px) {
+  #container {
+    width: 96%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  #container {
+    width: 94%;
+  }
+}
+@media only screen and (min-width: 1560px) {
+  #container {
+    width: 82%;
+  }
 }
