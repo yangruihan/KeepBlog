@@ -1,10 +1,12 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 
-from .models import User
 from myblog.models import UserInfo
+
+from .models import User, Article, Tag, UserInfo
 
 
 def index(request):
@@ -105,7 +107,7 @@ def jump_personal_page(request):
     try:
         user = request.session['logged_in_user']
         if (hasattr(user, "userinfo")):
-            return HttpResponse("即将跳转到个人主页")
+            return HttpResponseRedirect(reverse('myblog:user_home'))
         else:
             return HttpResponseRedirect(reverse('myblog:improve_userinfo'))
     except KeyError as e:
@@ -130,7 +132,27 @@ def do_create_userinfo(request):
         description = request.POST['description']
         userinfo = UserInfo(user=user, nickname=nickname, realname=realname, gender=gender, birthday=birthday, area=area, description=description)
         userinfo.save()
-        return HttpResponse("创建个人信息成功")
+        return HttpResponseRedirect(reverse('myblog:user_home'))
     except KeyError as e:
         print(e)
         return HttpResponse("创建个人信息失败")
+    
+def user_home(request):
+    """
+    个人主页
+    """
+    try:
+        user = request.session['logged_in_user']
+        articles = Article.objects.filter(user=user).order_by('-date_time')
+        paginator = Paginator(articles, 10) # 每页显示个数
+        page = request.GET.get('page')
+        try:
+            article_list = paginator.page(page)
+        except PageNotAnInteger :
+            article_list = paginator.page(1)
+        except EmptyPage :
+            article_list = paginator.paginator(paginator.num_pages)
+        return render(request, 'myblog/user_home.html', {'article_list' : article_list})
+    except KeyError as e:
+        print(e)
+        return HttpResponse("获得个人博文失败")

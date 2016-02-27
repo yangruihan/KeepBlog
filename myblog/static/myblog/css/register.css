@@ -1,6 +1,6 @@
 .bg_box {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    width:40%;
+    margin: 3em auto;
     padding-top: 1em;
     padding-bottom: 4em;
     background-color: rgb(118, 167, 207);
@@ -19,7 +19,7 @@
 
 table {
     width: 100%;
-    line-height: 2.5;
+    line-height: 3;
 }
 
 h1 {

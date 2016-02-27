@@ -19,7 +19,7 @@
 		<h2>欢迎您，{{ request.session.logged_in_user.username }}</h2>
 		<div class="jump_groups">
 			<ul>
-				<li><a href="#">进入个人主页</a></li>
+				<li><a href="{% url 'myblog:jump_personal_page' %}">进入个人主页</a></li>
 				<li><a href="{% url 'myblog:index' %}">返回首页</a></li>
 			</ul>
 		</div>

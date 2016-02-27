@@ -1,10 +1,9 @@
 .bg_box {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    padding-top: 1em;
-    padding-bottom: 4em;
+	width:40%;
+    margin: 3em auto;
+    padding: 3em 0 6em 0;
     background-color: rgb(118, 167, 207);
-     box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
+    box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
 }
 
 .register_box {
@@ -19,7 +18,7 @@
 
 table {
     width: 100%;
-    line-height: 2.5;
+    line-height: 3.5;
 }
 
 h1 {

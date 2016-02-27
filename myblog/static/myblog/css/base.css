@@ -1,7 +1,7 @@
 html, body {
 	height:100%
 	font-size: 100%;
-    background: #d9d9d9;
+    background: #f2f2f2;
     line-height: 1.5;
     font-family: arial,verdana,sans-serif, '新宋体'; 
 }
@@ -64,4 +64,13 @@ body .header {
     display: block;
     text-align: center;
     height: 30px;
+}
+
+.footer {
+    width: 100%;
+    height: 10em;
+    overflow: hidden;
+    position: relative;
+    background: #1f1f1f;
+    padding: 0 2% 0.5em;
 }

@@ -9,56 +9,61 @@
     
 </head>
 <body>
-    <div class="header">
-        <div class="header_left logo">
-        	{% if request.session.logged_in_user.userinfo %}
-        	<div class="blog_name" >{{ request.session.logged_in_user.userinfo.nickname }}'s Blog</div>
-        	{% else %}
-            <div class="blog_name" >Keep Blog</div>
-            {% endif %}
-        </div>
-        <div class="header_right login_wrap">
-        	{% if request.session.logged_in_user %}
-        	<ul>
-	        	<li>
-	            	<a href="{% url 'myblog:jump_personal_page' %}">欢迎您，
-	            	{% if request.session.logged_in_user.userinfo %}
-	            	{{ request.session.logged_in_user.userinfo.nickname }}
-	            	{% else %}
-	            	{{ request.session.logged_in_user.username }}
-	            	{% endif %}
-	            	</a>
-	            </li>
-	            <li class="index">
-	                <a href="{% url 'myblog:index' %}">首页</a>
-	            </li>
-	            <li class="personal_homepage">
-	                <a href="{% url 'myblog:jump_personal_page' %}">个人主页</a>
-	            </li>
-	            <li class="write_blog">
-	                <a href="#">写博客</a>
-	            </li>
-	            <li class="logout">
-	                <a href="{% url 'myblog:do_logout' %}">注销</a>
-	            </li>
-            </ul>
-        	{% else %}
-        	<ul>
-        		<li class="index">
-	                <a href="{% url 'myblog:index' %}">首页</a>
-	            </li>
-	            <li class="login">
-	                <a href="{% url 'myblog:login' %}">登录</a>
-	            </li>
-	            <li class="register">
-	                <a href="{% url 'myblog:register' %}">注册</a>
-	            </li>
-            </ul>
-            {% endif %}
-        </div>
+<div class="header">
+    <div class="header_left logo">
+    	{% if request.session.logged_in_user.userinfo %}
+    	<div class="blog_name" >{{ request.session.logged_in_user.userinfo.nickname }}'s Blog</div>
+    	{% else %}
+        <div class="blog_name" >Keep Blog</div>
+        {% endif %}
     </div>
+    <div class="header_right login_wrap">
+    	{% if request.session.logged_in_user %}
+    	<ul>
+        	<li>
+            	<a href="{% url 'myblog:jump_personal_page' %}">欢迎您，
+            	{% if request.session.logged_in_user.userinfo %}
+            	{{ request.session.logged_in_user.userinfo.nickname }}
+            	{% else %}
+            	{{ request.session.logged_in_user.username }}
+            	{% endif %}
+            	</a>
+            </li>
+            <li class="index">
+                <a href="{% url 'myblog:index' %}">首页</a>
+            </li>
+            <li class="personal_homepage">
+                <a href="{% url 'myblog:jump_personal_page' %}">个人主页</a>
+            </li>
+            <li class="write_blog">
+                <a href="#">写博客</a>
+            </li>
+            <li class="logout">
+                <a href="{% url 'myblog:do_logout' %}">注销</a>
+            </li>
+        </ul>
+    	{% else %}
+    	<ul>
+    		<li class="index">
+                <a href="{% url 'myblog:index' %}">首页</a>
+            </li>
+            <li class="login">
+                <a href="{% url 'myblog:login' %}">登录</a>
+            </li>
+            <li class="register">
+                <a href="{% url 'myblog:register' %}">注册</a>
+            </li>
+        </ul>
+        {% endif %}
+    </div>
+</div>
 
-    {% block content %}{% endblock %}
+{% block content %}{% endblock %}
+
+<div class="footer">
+
+</div>
+
 </body>
 
 <script type="text/javascript" src="{% static 'myblog/js/jquery/jquery-1.12.1.min.js' %}"></script>

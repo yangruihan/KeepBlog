@@ -17,4 +17,5 @@ urlpatterns = [
     url(r'^jump_personal_page/$', views.jump_personal_page, name='jump_personal_page'),
     url(r'^improve_userinfo/$', views.improve_userinfo, name='improve_userinfo'),
     url(r'^do_create_userinfo/$', views.do_create_userinfo, name='do_create_userinfo'),
+    url(r'^user_home/$', views.user_home, name="user_home"),
 ]
