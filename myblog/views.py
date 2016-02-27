@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 
 from .models import User
+
 
 def index(request):
     """
@@ -76,3 +77,16 @@ def do_login(request):
                                                          'error_message': "登录失败，用户名或密码错误"})
     except (KeyError, User.DoesNotExist):
         return render(request, 'myblog/login.html', {'error_message': "登录失败，用户名不存在"})
+    
+def username_check(request):
+    """
+    用户名检测
+    """
+    try:
+        if request.GET['username'].strip() == '':
+            return HttpResponse("请输入用户名")
+        else:
+            User.objects.get(username=request.GET['username'])
+            return HttpResponse("用户名已存在，请重新输入")
+    except User.DoesNotExist:
+        return HttpResponse("")

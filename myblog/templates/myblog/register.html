@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block scripts %}
+<script type="text/javascript" src="{% static 'myblog/js/register.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -19,21 +20,24 @@
         <form name="registerForm" method="post" action="{% url 'myblog:do_register' %}">
             {% csrf_token %}
             <table>
+            	<tr align="center">
+            		<td colspan="2"><span class="alert">{{ error_message }}</span></td>
+            	</tr>
                 <tr align="center">
                     <td><label for="username">用户名：</label></td>
-                    <td><input type="text" name="username" id="username"/><span>*</span></td>
+                    <td><input type="text" name="username" id="username" class="username" placeholder="例如：MyBlog_123"/><span>*</span></td>
                 </tr>
                 <tr align="center">
                     <td><label for="password">设置密码：</label></td>
-                    <td><input type="password" name="password" id="password" /><span>*</span></td>
+                    <td><input type="password" name="password" id="password" class="password"/><span>*</span></td>
                 </tr>
                 <tr align="center">
                     <td><label for="confirm_password">确认密码：</label></td>
-                    <td><input type="password" name="confirm_password" id="confirm_password" /><span>*</span></td>
+                    <td><input type="password" name="confirm_password" id="confirm_password" class="confirm_password"/><span>*</span></td>
                 </tr>
                 <tr align="center">
                     <td><label for="email">邮箱：</label></td>
-                    <td><input type="email" name="email" id="email" /><span>*</span></td>
+                    <td><input type="email" name="email" id="email" class="email" placeholder="例如：email@example.com"/><span>*</span></td>
                 </tr>
                 <tr align="center">
                     <td colspan="2"><input type="submit" value="立即注册" class="submit_btn" /></td>
