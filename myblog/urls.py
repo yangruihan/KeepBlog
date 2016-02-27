@@ -18,4 +18,5 @@ urlpatterns = [
     url(r'^improve_userinfo/$', views.improve_userinfo, name='improve_userinfo'),
     url(r'^do_create_userinfo/$', views.do_create_userinfo, name='do_create_userinfo'),
     url(r'^user_home/$', views.user_home, name="user_home"),
+    url(r'^article_detail/(?P<article_id>[0-9]+)/$', views.article_detail, name='article_detail')
 ]

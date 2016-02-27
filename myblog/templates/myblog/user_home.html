@@ -18,7 +18,7 @@
 		{% if article_list %}
 			{% for article in article_list %}
 			<section class="post" id="post" itemprop="blogitem" itemscope="">
-	    		<a href="#" title="{{ article.title }}" itemprop="url">
+	    		<a href="{% url 'myblog:article_detail' article.id %}" title="{{ article.title }}" itemprop="url">
 	    			<h1 itemprop="title">{{ article.title }}</h1>
 	       			<p itemprop="category" >{{ article.category }}</p>
 	    			<time datetime="{{ ariticle.date_time }}" itemprop="datePublished">{{ article.date_time }}</time>

@@ -156,3 +156,10 @@ def user_home(request):
     except KeyError as e:
         print(e)
         return HttpResponse("获得个人博文失败")
+    
+def article_detail(request, article_id):
+    """
+    文章详细
+    """
+    article = get_object_or_404(Article, pk=article_id)
+    return render(request, 'myblog/article_detail.html', { 'article': article })
