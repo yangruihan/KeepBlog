@@ -11,7 +11,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 	vertical-align:baseline;
 }
 
-body > header {
+body .header {
     box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
     background-color: rgb(70, 130, 180);
     background-position: center center;

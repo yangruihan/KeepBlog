@@ -122,9 +122,11 @@ def do_create_userinfo(request):
         realname = request.POST['realname']
         gender = request.POST['gender']
         birthday = request.POST['birthday']
-        city = request.POST['s_city']
-        province = request.POST['s_province']
+        city = request.POST['s_city'] if request.POST['s_city'] != "地级市" else ""
+        province = request.POST['s_province'] if request.POST['s_province'] != "省份" else ""
         area = province + '_' + city
+        if province == "":
+            area = ""
         description = request.POST['description']
         userinfo = UserInfo(user=user, nickname=nickname, realname=realname, gender=gender, birthday=birthday, area=area, description=description)
         userinfo.save()
