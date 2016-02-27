@@ -2,12 +2,36 @@ from django.db import models
 
 class User(models.Model):
     """
-    用户实体类
+    用户账号类
     """
     username = models.CharField(max_length=50) # 用户名
     password = models.CharField(max_length=50) # 密码
-    email = models.CharField(max_length=320) # 邮箱
-    create_date = models.DateTimeField('Date created') # 创建时间
+    email = models.EmailField() # 邮箱
+    create_date = models.DateTimeField(auto_now_add=True) # 创建时间
     
     def __str__(self):
         return self.username
+    
+class UserInfo(models.Model):
+    """
+    用户信息类
+    """
+    GENDER_CHOICES = (
+        ('M', '男'),
+        ('F', '女'),
+    )
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    nickname = models.CharField(max_length=50) # 昵称
+    realname = models.CharField(max_length=50) # 实名
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default='M')  # 性别
+    birthday = models.DateField() #生日
+    area = models.CharField(max_length=100) # 地区
+    description = models.TextField() # 简述
+    
+    def __str__(self):
+        return self.nickname
+
+    def get_gender(self):
+        i = 0 if self.gender == 'M' else 1
+        return self.GENDER_CHOICES[i][1]
