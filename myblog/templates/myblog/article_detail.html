@@ -11,33 +11,57 @@
 {% endblock %}
 
 {% block scripts %}
+<script type="text/javascript" src="{% static 'myblog/js/article_detail.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 <dir class="container" id="container">
-	<article id="{{ article.id }}" class="article article-type-post show" itemprop="blogPost" itemscope="">
-		<div class="article-inner">
-			<header class="article-header">
-				<h1 class="article-title" itemprop="name">{{ article.title }}</h1>
-			</header>
-			<div class="article-info article-info-post">
-				<div class="article-tag tagcloud">
-					<ul class="article-tag-list">
-						<li class="article-tag-list-item">
-							<a href="#">标签：</a>
-						</li>
-						{% for tag in article.tag.all %}
-						<li class="article-tag-list-item">
-							<a href="#">{{ tag.tag_name }}</a>
-						</li>
-						{% endfor %}
-					</ul>
+	<div class="main" id="main">
+		<article id="{{ article.id }}" class="article article-type-post show" itemprop="blogPost" itemscope="">
+			<div class="article-inner">
+				<header class="article-header">
+					<h1 class="article-title" itemprop="name">{{ article.title }}</h1>
+				</header>
+				<div class="article-info article-info-post">
+					<div class="article-tag tagcloud">
+						<ul class="article-tag-list">
+							<li class="article-tag-list-item">
+								<a href="javascript:void(0);">标签：</a>
+							</li>
+							{% for tag in article.tag.all %}
+							<li class="article-tag-list-item">
+								<a href="{% url 'myblog:user_home_tag' tag.id %}">{{ tag.tag_name }}</a>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+				<div class="article-entry">
+				<link rel="stylesheet" type="text/css" href="{% static 'myblog/css/markdown.css' %}">
+				{{ article.content|custom_markdown }}
 				</div>
 			</div>
-			<div class="article-entry">
-			{{ article.content|custom_markdown }}
+		</article>
+	</div>
+	<div id="asidepart">
+		<aside class="clearfix">
+			<div class="categorieslist">
+				<p class="asidetitle" id="category_btn">分类</p>
+				<ul>
+					{% for category, counter in  category_counter.items %}
+					<li><a href="{% url 'myblog:user_home_category' category.id %}" title="{{ category }}">{{ category }}<sup>{{ counter }}</sup></a></li>
+					{% endfor %}
+				</ul>
 			</div>
-		</div>
-	</article>
+			<div class="tagslist">
+				<p class="asidetitle" id="tag_btn">标签</p>
+				<ul class="clearfix">
+					{% for tag, counter in tag_counter.items %}
+					<li><a href="{% url 'myblog:user_home_tag' tag.id %}" title="{{ tag }}">{{ tag }}<sup>{{ counter }}</sup></a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</aside>
+	</div>
 </dir>
 {% endblock %}

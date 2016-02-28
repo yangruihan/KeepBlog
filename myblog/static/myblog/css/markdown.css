@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+/**
+ * markdown.css
+ *
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation, either version 3 of the License, or (at your option) any
+ * later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program. If not, see http://gnu.org/licenses/lgpl.txt.
+ *
+ * @project      Weblog and Open Source Projects of Florian Wolters
+ * @version      GIT: $Id$
+ * @package      xhtml-css
+ * @author       Florian Wolters <florian.wolters.85@googlemail.com>
+ * @copyright    2012 Florian Wolters
+ * @cssdoc       version 1.0-pre
+ * @license      http://gnu.org/licenses/lgpl.txt GNU Lesser General Public License
+ * @link         http://github.com/FlorianWolters/jekyll-bootstrap-theme
+ * @media        all
+ * @valid        true
+ */
+
+.article-entry body {
+    font-family: Helvetica, Arial, Freesans, clean, sans-serif;
+	padding:1em;
+	margin:auto;
+	max-width:42em;
+	background:#fefefe;
+}
+
+.article-entry h1, 
+.article-entry h2, 
+.article-entry h3, 
+.article-entry h4, 
+.article-entry h5, 
+.article-entry h6 {
+    font-weight: bold;
+}
+
+.article-entry h1 {
+    color: #000000;
+    font-size: 28px;
+}
+
+.article-entry h2 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+    font-size: 24px;
+}
+
+.article-entry h3 {
+    font-size: 18px;
+}
+
+.article-entry h4 {
+    font-size: 16px;
+}
+
+.article-entry h5 {
+    font-size: 14px;
+}
+
+.article-entry h6 {
+    color: #777777;
+    background-color: inherit;
+    font-size: 14px;
+}
+
+.article-entry hr {
+    height: 0.2em;
+    border: 0;
+    color: #CCCCCC;
+    background-color: #CCCCCC;
+}
+
+.article-entry p,
+.article-entry blockquote,
+.article-entry ul, 
+.article-entry ol, 
+.article-entry dl, 
+.article-entry li, 
+.article-entry table, 
+.article-entry pre {
+    margin: 15px 0;
+}
+
+.article-entry code, 
+.article-entry pre {
+    border-radius: 3px;
+    background-color: #F8F8F8;
+    color: inherit;
+}
+
+.article-entry code {
+    border: 1px solid #EAEAEA;
+    margin: 0 2px;
+    padding: 0 5px;
+}
+
+.article-entry pre {
+    border: 1px solid #CCCCCC;
+    line-height: 1.25em;
+    overflow: auto;
+    padding: 6px 10px;
+}
+
+.article-entry pre > code {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.article-entry a, .article-entry a:visited {
+    color: #4183C4;
+    background-color: inherit;
+    text-decoration: none;
+}
